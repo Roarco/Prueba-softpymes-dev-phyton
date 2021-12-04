@@ -1,0 +1,23 @@
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysqlPrueba
+    environment:
+      - MYSQL_DATABASE=Prueba
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=1104017400
+      - MYSQL_PORT=3306
+    ports:
+      - "3306:3306"
+    volumes:
+      - "~/mysql_data:/var/lib/mysql"
+
+  phpmyadminPytho:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadminPrueba
+    environment:
+      - MYSQL_ROOT_PASSWORD=1104017400
+      - PMA_HOST=mysql
+    ports:
+      - "8080:80"
